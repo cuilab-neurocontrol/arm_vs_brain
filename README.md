@@ -102,10 +102,6 @@ jupyter notebook demo.ipynb
 
 ## 4. Instructions for Use
 
-### Running analysis scripts
-
-All scripts use relative paths from the repository root. Each figure requires NWB data in `nwb_kilosort/` (not included in this repository; available separately).
-
 ### Estimated run times per figure
 
 Tested on Apple M-series (macOS) and Linux HPC. Times scale with dataset size.
@@ -121,21 +117,3 @@ Tested on Apple M-series (macOS) and Linux HPC. Times scale with dataset size.
 | **Fig 4** | CCA | `fig4/c/cca_analysis.py` | ~12 min per condition (8 conditions) |
 
 **Total estimated time:** ~4-5 hours for all figures (can be parallelized on HPC).
-
-### Reproduction
-
-Each figure requires running preprocessing first, then the analysis script. For example:
-
-```bash
-# Fig 2: preprocessing (one condition)
-python fig2/preprocessing/bohr_bc/pd_ana_movement_onset.py
-
-# Fig 2: analysis
-python fig2/c/pd_shift_analysis.py
-```
-
-For Fig 3 subspace analysis on HPC:
-
-```bash
-sbatch fig3/preprocessing/batch.sh <input_file> <input_dir> <output_dir>
-```
