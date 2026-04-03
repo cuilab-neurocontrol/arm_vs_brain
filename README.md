@@ -122,22 +122,6 @@ Tested on Apple M-series (macOS) and Linux HPC. Times scale with dataset size.
 
 **Total estimated time:** ~4-5 hours for all figures (can be parallelized on HPC).
 
-### Running on your own data
-
-The analysis scripts expect NWB files with the following structure:
-
-- **Brain control sessions** (`standard_data_bmi.nwb`):
-  - `units`: spike times with `sorter` column (filtered by `kilosort2.5`)
-  - `BehaviorMarkers`: trial event markers (24=trial start, 1=target on, 3=GO, 20=success, 5=trial end)
-  - `pos`: cursor position (2D)
-  - `training flag`: BMI training flag (0=testing)
-
-- **Manual control sessions** (`standard_data_manual.nwb`):
-  - `units`: spike times with `sorter` column
-  - `intervals/trials`: trial table with `result_label`, `movement_onset_time`, `feedback_pos`, etc.
-
-To use your own data, organize NWB files under `nwb_kilosort/<subject>/<condition>/` following the same directory structure.
-
 ### Reproduction
 
 Each figure requires running preprocessing first, then the analysis script. For example:
