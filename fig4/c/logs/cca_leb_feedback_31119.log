@@ -1,0 +1,23 @@
+=== CCA Analysis for Fig4c ===
+Monkey: leb, Condition: feedback, Prep: False
+
+Processing: leb_feedback_exec
+  Found 6 feedback BC datasets
+  Found 9 MC datasets
+  Loaded 15 total dataframes
+  Bad Groups Analysis (Trials < 5): {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
+  Best group to drop: 1, retained datasets: 15/15
+  After filtering: 15 dataframes
+0it [00:00, ?it/s]15it [00:00, 7689.39it/s]
+/HWFS/cuihe_lab/lichenyang/Nature_manuscript_2024/arm_vs_brain_control/code/fig4/c/cca_analysis.py:152: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  len_trial = int(np.round(np.diff(defs.WINDOW_exec)/defs.BIN_SIZE))
+make ccs
+0it [00:00, ?it/s]54it [00:00, 1131.98it/s]
+make lower bound
+0it [00:00, ?it/s]1it [00:00,  1.14it/s]2it [00:01,  1.14it/s]3it [00:02,  1.14it/s]4it [00:03,  1.14it/s]5it [00:04,  1.14it/s]6it [00:05,  1.14it/s]7it [00:06,  1.14it/s]8it [00:07,  1.14it/s]9it [00:07,  1.14it/s]10it [00:08,  1.14it/s]11it [00:09,  1.14it/s]12it [00:10,  1.14it/s]13it [00:11,  1.14it/s]14it [00:12,  1.14it/s]15it [00:13,  1.14it/s]16it [00:14,  1.14it/s]17it [00:14,  1.14it/s]18it [00:15,  1.14it/s]19it [00:16,  1.14it/s]20it [00:17,  1.14it/s]21it [00:18,  1.14it/s]22it [00:19,  1.14it/s]23it [00:20,  1.14it/s]24it [00:21,  1.15it/s]25it [00:21,  1.15it/s]26it [00:22,  1.15it/s]27it [00:23,  1.15it/s]28it [00:24,  1.15it/s]29it [00:25,  1.15it/s]30it [00:26,  1.15it/s]31it [00:27,  1.15it/s]32it [00:28,  1.15it/s]33it [00:28,  1.15it/s]34it [00:29,  1.15it/s]35it [00:30,  1.15it/s]36it [00:31,  1.15it/s]37it [00:32,  1.15it/s]38it [00:33,  1.15it/s]39it [00:34,  1.15it/s]40it [00:34,  1.15it/s]41it [00:35,  1.15it/s]42it [00:36,  1.15it/s]43it [00:37,  1.15it/s]44it [00:38,  1.15it/s]45it [00:39,  1.15it/s]46it [00:40,  1.15it/s]47it [00:41,  1.16it/s]48it [00:41,  1.16it/s]49it [00:42,  1.16it/s]50it [00:43,  1.16it/s]51it [00:44,  1.16it/s]52it [00:45,  1.16it/s]53it [00:46,  1.16it/s]54it [00:47,  1.16it/s]54it [00:47,  1.15it/s]
+make upper bound
+  0%|          | 0/15 [00:00<?, ?it/s]  7%|▋         | 1/15 [00:00<00:07,  1.82it/s] 13%|█▎        | 2/15 [00:01<00:07,  1.82it/s] 20%|██        | 3/15 [00:01<00:06,  1.82it/s] 27%|██▋       | 4/15 [00:02<00:06,  1.82it/s] 33%|███▎      | 5/15 [00:02<00:05,  1.82it/s] 40%|████      | 6/15 [00:03<00:04,  1.82it/s] 47%|████▋     | 7/15 [00:03<00:04,  1.83it/s] 53%|█████▎    | 8/15 [00:04<00:03,  1.83it/s] 60%|██████    | 9/15 [00:04<00:03,  1.83it/s] 67%|██████▋   | 10/15 [00:05<00:02,  1.83it/s] 73%|███████▎  | 11/15 [00:06<00:02,  1.83it/s] 80%|████████  | 12/15 [00:06<00:01,  1.83it/s] 87%|████████▋ | 13/15 [00:07<00:01,  1.83it/s] 93%|█████████▎| 14/15 [00:07<00:00,  1.83it/s]100%|██████████| 15/15 [00:08<00:00,  1.83it/s]100%|██████████| 15/15 [00:08<00:00,  1.83it/s]
+  Saved: /HWFS/cuihe_lab/lichenyang/Nature_manuscript_2024/arm_vs_brain_control/code/fig4/c/diff_allCCs_results_feedback_leb.csv
+
+=== Done ===
+  /HWFS/cuihe_lab/lichenyang/Nature_manuscript_2024/arm_vs_brain_control/code/fig4/c/diff_allCCs_results_feedback_leb.csv

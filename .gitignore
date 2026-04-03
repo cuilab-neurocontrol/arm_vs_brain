@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+nwb_kilosort
+fig4/c/tools
+fig4/c/params.py
