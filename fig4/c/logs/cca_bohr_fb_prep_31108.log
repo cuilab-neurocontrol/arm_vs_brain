@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "cca_analysis.py", line 11, in <module>
-    import numpy as np
-ModuleNotFoundError: No module named 'numpy'
