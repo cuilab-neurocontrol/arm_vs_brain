@@ -87,4 +87,71 @@ Typical install time: < 2 minutes.
 
 ## 3. Demo
 
-A demo notebook is provided in `code/demo/demo.ipynb`. It loads a single BMI session (Monkey Bohr, 115 units, ~400 trials) and visualizes peri-event neural activity aligned to movement onset.
+A demo notebook is provided in `demo/demo.ipynb`. It loads a single BMI session (Monkey Bohr, 115 units, ~400 trials) and visualizes peri-event neural activity aligned to movement onset.
+
+**To run:**
+
+```bash
+cd demo
+jupyter notebook demo.ipynb
+```
+
+**Expected output:** A heatmap of normalized firing rates across all units, sorted by peak firing time, aligned to movement onset.
+
+**Expected run time:** < 30 seconds on a standard desktop computer.
+
+## 4. Instructions for Use
+
+### Running analysis scripts
+
+All scripts use relative paths from the repository root. Each figure requires NWB data in `nwb_kilosort/` (not included in this repository; available separately).
+
+### Estimated run times per figure
+
+Tested on Apple M-series (macOS) and Linux HPC. Times scale with dataset size.
+
+| Figure | Step | Script | Time per run |
+|--------|------|--------|-------------|
+| **Fig 1** | Analysis | `fig1/e/*.py`, `fig1/f/*.py` | ~2-5 min each |
+| **Fig 2** | Preprocessing | `fig2/preprocessing/*/*.py` | ~1-4 min each (24 scripts) |
+| | Analysis | `fig2/a/*.py`, `fig2/c/*.py`, `fig2/d/*.py` | < 1 min each |
+| **Fig 3** | PCA trajectory | `fig3/preprocessing/*/make_pca_traj.py` | ~5-10 min each |
+| | Subspace (HPC) | `fig3/subspace_numpy.py` | ~2-3 min per session |
+| | Analysis | `fig3/b/*.py`, `fig3/c-e/*.py` | < 1 min each |
+| **Fig 4** | CCA | `fig4/c/cca_analysis.py` | ~12 min per condition (8 conditions) |
+
+**Total estimated time:** ~4-5 hours for all figures (can be parallelized on HPC).
+
+### Running on your own data
+
+The analysis scripts expect NWB files with the following structure:
+
+- **Brain control sessions** (`standard_data_bmi.nwb`):
+  - `units`: spike times with `sorter` column (filtered by `kilosort2.5`)
+  - `BehaviorMarkers`: trial event markers (24=trial start, 1=target on, 3=GO, 20=success, 5=trial end)
+  - `pos`: cursor position (2D)
+  - `training flag`: BMI training flag (0=testing)
+
+- **Manual control sessions** (`standard_data_manual.nwb`):
+  - `units`: spike times with `sorter` column
+  - `intervals/trials`: trial table with `result_label`, `movement_onset_time`, `feedback_pos`, etc.
+
+To use your own data, organize NWB files under `nwb_kilosort/<subject>/<condition>/` following the same directory structure.
+
+### Reproduction
+
+Each figure requires running preprocessing first, then the analysis script. For example:
+
+```bash
+# Fig 2: preprocessing (one condition)
+python fig2/preprocessing/bohr_bc/pd_ana_movement_onset.py
+
+# Fig 2: analysis
+python fig2/c/pd_shift_analysis.py
+```
+
+For Fig 3 subspace analysis on HPC:
+
+```bash
+sbatch fig3/preprocessing/batch.sh <input_file> <input_dir> <output_dir>
+```
