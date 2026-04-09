@@ -60,7 +60,7 @@ for raw_dirname in tqdm(os.listdir(data_folder)):
 
     # Align trial count: compute_perievent may drop boundary trials
     n_trials = is_tsd.d.shape[1]
-    df = df.iloc[:n_trials]
+    # df = df.iloc[:n_trials]
     pos_array = np.array(success_trials['feedback_pos'].to_list())
     angles = np.arctan2(pos_array[:, 1], pos_array[:, 0]) * 180 / np.pi
     groups = np.digitize(angles % 360, bins=np.linspace(0, 360, num=9))
